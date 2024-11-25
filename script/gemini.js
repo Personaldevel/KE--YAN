@@ -3,7 +3,7 @@ const axios = require('axios');
 module.exports.config = {
     name: "gemini",
     role: 0,
-    credits: "aesther",
+    credits: "Armenion",
     description: "Interact with Gemini",
     hasPrefix: false,
     version: "1.0.0",
@@ -26,12 +26,12 @@ module.exports.run = async function ({ api, event, args }) {
     api.sendTypingIndicator(event.threadID);
 
     try {
-        await api.sendMessage('🌸𝙂𝙀𝙈𝙄𝙉𝙄 𝙂𝙊𝙊𝙂𝙇𝙀🌸........', event.threadID);
+        await api.sendMessage('『𝗩𝗜𝗡 𝗡𝗜 𝗖𝗘𝗡𝗧』........', event.threadID);
 
         const response = await axios.get(`https://sandipbaruwal.onrender.com/gemini?prompt=${encodeURIComponent(prompt)}&url=${url}`);
         const description = response.data.answer;
 
-        return api.sendMessage(`🌸𝙂𝙀𝙈𝙄𝙉𝙄 𝙂𝙊𝙊𝙂𝙇𝙀🌸\n━━━━━━━━━━━━━━━━━━\n${description}\n━━━━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+        return api.sendMessage(`『𝗩𝗜𝗡 𝗡𝗜 𝗖𝗘𝗡𝗧』\n┏◅━━━━━━━━━━━━━━━━━━▻┓\n${description}\n┗◅━━━━━━━━━━━━━━━━━━▻┛`, event.threadID, event.messageID);
     } catch (error) {
         console.error(error);
         return api.sendMessage('❌ | An error occurred while processing your request.', event.threadID, event.messageID);
