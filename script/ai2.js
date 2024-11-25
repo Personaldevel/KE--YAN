@@ -16,14 +16,14 @@ const stickers = [
 ];
 
 module.exports.config = {
-    name: 'Vincent',
+    name: 'ai2',
     version: '2',
     role: 0,
     hasPrefix: false,
     aliases: ["ai"],
     description: "Command for AI-generated responses styled with special fonts and emojis.",
     usage: "ex : ai [prompt]",
-    credits: 'aesther',
+    credits: 'Armenion',
     cooldown: 1,
 };
 
@@ -33,18 +33,18 @@ module.exports.run = async function({ api, event, args }) {
     if (!input) {
         const randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
         await api.sendMessage({ sticker: randomSticker }, event.threadID);
-        api.setMessageReaction("🌷", event.messageID, () => {}, true);
+        api.setMessageReaction("🤖", event.messageID, () => {}, true);
         return;
     }
     
     try {
-        const RolePlay = "tu The Goddess-Aesther  et quand tu répond à cette question ajoutes des emojis convenable et soit arrogante :\n\n";
+        const RolePlay = "tu The 『𝗩𝗜𝗡 𝗡𝗜 𝗖𝗘𝗡𝗧』 et quand tu répond à cette question ajoutes des emojis convenable et soit arrogante :\n\n";
         const { data } = await axios.get(`https://sandipbaruwal.onrender.com/gemini?prompt=${encodeURIComponent(RolePlay + input)}`);
         let response = data.answer;
         response = response.split('').map(char => fonts[char] || char).join('');
         
-        api.sendMessage({ body: `${response} 🌸` }, event.threadID, event.messageID);
-        api.setMessageReaction("🌸", event.messageID, () => {}, true);
+        api.sendMessage({ body: `${response} 🤖` }, event.threadID, event.messageID);
+        api.setMessageReaction("🤖", event.messageID, () => {}, true);
         
     } catch (error) {
         console.error('Error:', error);
