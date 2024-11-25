@@ -3,10 +3,10 @@ module.exports.config = {
   version: '2',
   role: 0,
   hasPrefix: true,
-  aliases: ['info'],
+  aliases: ['help'],
   description: "Beginner's guide",
   usage: "Help [page] or [command]",
-  credits: 'aesther',
+  credits: 'Armenion',
 };
 module.exports.run = async function({
   api,
@@ -25,13 +25,13 @@ module.exports.run = async function({
       let page = 1;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = `[🔵VIN-CENT BOT🔵]\n  ˚₊‧꒰ა /ᐠ - ˕ -マ໒꒱ ‧₊˚ \n━━━━━━━━━━━\n`;
+      let helpMessage = `『𝗩𝗜𝗡 𝗡𝗜 𝗖𝗘𝗡𝗧』\n  ˚₊‧꒰ა /ᐠ - ˕ -マ໒꒱ ‧₊˚ \n❖═━━━━━━━━━━━═❖\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
         helpMessage += `✪ \t${i + 1}▪﹝${prefix}${commands[i]}﹞\n`;
       }
-      helpMessage += '━ 𝗘𝗩𝗘𝗡𝗧.𝗟𝗜𝗦𝗧- ˕ -ྀマ[🏷️]\n━━━━━━━━━━━\n';
+      helpMessage += '━ 𝗘𝗩𝗘𝗡𝗧.𝗟𝗜𝗦𝗧- ˕ -ྀマ[🏷️]\n❖⚌━━━━━━━━━━━⚌❖\n';
       eventCommands.forEach((eventCommand, index) => {
-        helpMessage += `✦ \t${index + 1}▪﹝${prefix}${eventCommand}﹞\n\n🏷️https://www.facebook.com/Thea.Starliness`;
+        helpMessage += `✦ \t${index + 1}▪﹝${prefix}${eventCommand}﹞\n\n🏷️https://www.facebook.com/100090775159086`;
       });
       helpMessage += ``;
       api.sendMessage(helpMessage, event.threadID, event.messageID);
@@ -40,11 +40,11 @@ module.exports.run = async function({
       const pages = 30;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = `▪〉𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝘀 - 𝗟𝗜𝗦𝗧(－－〆)[🔖]\n━━━━━━━━━━━\n`;
+      let helpMessage = `▪〉𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝘀 - 𝗟𝗜𝗦𝗧(－－〆)[🔖]\n❖⚌━━━━━━━━━━━⚌❖\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
         helpMessage += `✪ \t${i + 1}▪﹝${prefix}${commands[i]}﹞\n`;
       }
-      helpMessage += '━ 𝗘𝗩𝗘𝗡𝗧.𝗟𝗜𝗦𝗧- ˕ -ྀマ[🏷️]\n━━━━━━━━━━━\n';
+      helpMessage += '━ 𝗘𝗩𝗘𝗡𝗧.𝗟𝗜𝗦𝗧- ˕ -ྀマ[🏷️]\n❖⚌━━━━━━━━━━━⚌❖\n';
       eventCommands.forEach((eventCommand, index) => {
         helpMessage += `✦ \t${index + 1}▪﹝${prefix}${eventCommand}﹞\n`;
       });
