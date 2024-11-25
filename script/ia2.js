@@ -16,14 +16,14 @@ const stickers = [
 ];
 
 module.exports.config = {
-    name: 'Yanzen',
+    name: 'ai2',
     version: '2',
     role: 0,
     hasPrefix: false,
     aliases: ["ai"],
     description: "Command for AI-generated responses styled with special fonts and emojis.",
     usage: "ex : ai [prompt]",
-    credits: 'aesther',
+    credits: 'Armenion',
     cooldown: 1,
 };
 
@@ -33,7 +33,7 @@ module.exports.run = async function({ api, event, args }) {
     if (!input) {
         const randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
         await api.sendMessage({ sticker: randomSticker }, event.threadID);
-        api.setMessageReaction("🌷", event.messageID, () => {}, true);
+        api.setMessageReaction("🤖", event.messageID, () => {}, true);
         return;
     }
     
@@ -43,11 +43,11 @@ module.exports.run = async function({ api, event, args }) {
         let response = data.answer;
         response = response.split('').map(char => fonts[char] || char).join('');
         
-        api.sendMessage({ body: `[📑] ᗩEᔕTᕼEᖇ :\n\n${response}` }, event.threadID, event.messageID);
+        api.sendMessage({ body: `『𝗩𝗜𝗡 𝗡𝗜 𝗖𝗘𝗡𝗧』:\n\n${response}` }, event.threadID, event.messageID);
         api.setMessageReaction("🌸", event.messageID, () => {}, true);
         
     } catch (error) {
         console.error('Error:', error);
-        api.sendMessage({ body: '⚠️ Error Loading ⚠️' }, event.threadID, event.messageID);
+        api.senMessage({ body: '🔕 Error Loading 🔕' }, event.threadID, event.messageID);
     }
 };
